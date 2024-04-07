@@ -13,9 +13,9 @@
                 {{ Str::words($note->note,30) }}
             </div>
             
-            <div class="note-buttons">
-                <a href="{{ route('note.show', $note->id) }}" class="note-edit-button">View</a>
-                <a href="{{ route('note.edit', $note->id) }}" class="note-edit-button">Edit</a>
+            <div>
+                <a href="{{ route('note.show', $note->id) }}" class="btn btn-primary">View</a>
+                <a href="{{ route('note.edit', $note->id) }}" class="btn btn-primary">Edit</a>
             </div>
             <hr>
             @endforeach 

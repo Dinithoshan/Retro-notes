@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,7 +24,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('note', NoteController::class);
 });
 
+Route::get('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+->middleware('auth')
+->name('custom.logout');
 
+#Routes for stripe
+Route::get('/payment', [ProductController::class,'show'])->name('payment.show');
+Route::post('products/{id}/purchase',[ProductController::class, 'purchase'])->name('payment.checkout');
 
 
 #CRUD Routes for the notes
