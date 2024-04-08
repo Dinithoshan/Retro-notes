@@ -4,8 +4,13 @@ namespace Database\Seeders;
 
 use App\Models\Note;
 use App\Models\User;
+use App\Models\Category;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+
+
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,13 +21,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'id' => 1,
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password'=> bcrypt('pass123'),
-        ]);
+        // User::factory()->create([
+        //     'id' => 2,
+        //     'name' => 'test User',
+        //     'email' => 'test@example.com',
+        //     'password'=> bcrypt('test123'),
+        //     'is_admin'=>true,
+        // ]);
 
         Note::factory(100)->create();
+
+        // Category::factory()->count(10)->create();
+        
     }
+
 }

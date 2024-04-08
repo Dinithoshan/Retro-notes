@@ -18,7 +18,9 @@ class NoteFactory extends Factory
     {
         return [
             'note' => fake()->realText(2000),
-            'user_id' => 1
+            'user_id' => 1,
+            'heading' => fake()->sentence(10),
+            'category_id' => rand (1,10),
         ];
     }
 }

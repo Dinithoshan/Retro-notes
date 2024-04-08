@@ -45,6 +45,11 @@
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('payment.show')}}">Buy Product</a>   
                       </li> 
+                      @if (auth()->check() && auth()->user()->is_admin)
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('category.index')}}">Categories</a>   
+                      </li>
+                      @endif
                      
                       {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -8,6 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
 
+
+#Credentials
+#admin: admin@example.com         admin123
+#testL test@example.com             test123
+
+
+
 class User extends Authenticatable
 {
 

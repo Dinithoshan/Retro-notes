@@ -8,9 +8,8 @@
             @foreach ($notes as $note)
             
             <div class="note body">
-                {{$note->id}}
-            <br>
-                {{ Str::words($note->note,30) }}
+                <h5>{{$note->heading}}</h5>
+                {{ Str::words($note->note,45) }}
             </div>
             
             <div>

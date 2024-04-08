@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AdminAuthentication;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +33,12 @@ Route::get('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController:
 #Routes for stripe
 Route::get('/payment', [ProductController::class,'show'])->name('payment.show');
 Route::post('products/{id}/purchase',[ProductController::class, 'purchase'])->name('payment.checkout');
+
+
+#Route for editing category
+Route::resource('category', CategoryController::class)->middleware(AdminAuthentication::class);
+
+
 
 
 #CRUD Routes for the notes
