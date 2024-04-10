@@ -65,11 +65,8 @@
                       <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                       </li>
-                    </ul> --}}  
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    </ul> --}}
+                    
                     <div>
                         <li class="nav-item">
                             <a class="btn btn-outline-danger" aria-current="page" href="{{ route('custom.logout')}}">Logout</a>   
@@ -81,6 +78,7 @@
                
             </nav>
             <h1>Retro Notes</h1>
+            @livewire('search-dropdown') 
 
             <!-- Page Content -->
             <main>

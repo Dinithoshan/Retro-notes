@@ -12,7 +12,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = Note::query()
+        $notes = Note::with('category')
         ->where("user_id", request()->user()->id)
         ->orderby("created_at","desc")
         ->paginate(15);
@@ -78,8 +78,6 @@ class NoteController extends Controller
         ]);
 
         $note->update($data);
-        //$note = Note::update($data);
-
         return to_route('note.show', $note->id)->with('message', 'note was updated');
     }
 

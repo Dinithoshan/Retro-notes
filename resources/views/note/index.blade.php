@@ -1,6 +1,7 @@
 <x-app-layout>
+    <br>
     <div class="note-container">
-        <a href=" {{ route('note.create')}}" class="new-note-btn">
+        <a href=" {{ route('note.create')}}" class="btn btn-success">
             New Note
         </a>
         <hr>
@@ -9,7 +10,9 @@
             
             <div class="note body">
                 <h5>{{$note->heading}}</h5>
+                <h6>Category: {{$note->category->category}}</h6>
                 {{ Str::words($note->note,45) }}
+                
             </div>
             
             <div>
