@@ -6,10 +6,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminAuthentication;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->name('home'); 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,12 +32,16 @@ Route::get('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController:
 ->name('custom.logout');
 
 #Routes for stripe
-Route::get('/payment', [ProductController::class,'show'])->name('payment.show');
-Route::post('products/{id}/purchase',[ProductController::class, 'purchase'])->name('payment.checkout');
+// Route::get('/payment', [ProductController::class,'show'])->name('payment.show');
+// Route::post('products/{id}/purchase',[ProductController::class, 'purchase'])->name('payment.checkout');
 
 
 #Route for editing category
 Route::resource('category', CategoryController::class)->middleware(AdminAuthentication::class);
+
+Route::get('/payment', function (Request $request) {
+    return $request->user()->checkoutCharge(1200, 'T-Shirt', 5);
+})->name('payment.show');
 
 
 
